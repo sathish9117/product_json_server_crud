@@ -7,22 +7,23 @@ const Modal = ({
   toggleModal,
   children,
   title = "Hello",
-  del = false,
-  btn_del = false,
+  cancelBtn = false,
+  btn_img = false,
+  closeImg = false,
 }) => {
   const [flag, setFlag] = useState(false);
   useEffect(() => {
-    if (del || btn_del) {
+    if (cancelBtn || btn_img) {
       setFlag(true);
     }
-  }, []);
+  }, [cancelBtn, btn_img]);
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
       <div className="relative w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
-        {btn_del && (
+        {btn_img && (
           <Button
             className="absolute top-3 right-3"
-            closeImg
+            closeImg={closeImg}
             onClick={toggleModal}
           />
         )}
@@ -31,13 +32,13 @@ const Modal = ({
           {title}
         </h2>
         {children}
-        {flag && (
-          <div className=" ">
-            {del && (
-              <div className="">
-                <Button title={"Cancel"} onClick={toggleModal} />
-              </div>
-            )}
+        {flag && cancelBtn && (
+          <div className="">
+            <Button
+              title={"Cancel"}
+              className=" mt-2 w-full bg-red-800"
+              onClick={toggleModal}
+            />
           </div>
         )}
       </div>
