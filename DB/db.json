@@ -1,0 +1,184 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Galaxy S21 Ultra",
+      "brand": "Samsung",
+      "category": "Mobile",
+      "price": 1199.99,
+      "description": "Samsung's flagship model with a 6.8-inch Dynamic AMOLED display, 108MP camera, and 5000mAh battery.",
+      "createdAt": "2023-01-05"
+    },
+    {
+      "id": 2,
+      "name": "iPhone 14 Pro Max",
+      "brand": "Apple",
+      "category": "Mobile",
+      "price": 1299.99,
+      "description": "Apple's top-tier iPhone with a 6.7-inch OLED display, A16 Bionic chip, and advanced triple camera system.",
+      "createdAt": "2023-02-15"
+    },
+    {
+      "id": 3,
+      "name": "OnePlus 10 Pro",
+      "brand": "OnePlus",
+      "category": "Mobile",
+      "price": 899.99,
+      "description": "OnePlus flagship with Snapdragon 8 Gen 1, 6.7-inch AMOLED display, and 65W fast charging.",
+      "createdAt": "2023-03-10"
+    },
+    {
+      "id": 4,
+      "name": "Google Pixel 7 Pro",
+      "brand": "Google",
+      "category": "Mobile",
+      "price": 999.99,
+      "description": "Google's latest Pixel with advanced AI features, Tensor G2 chip, and 120Hz OLED display.",
+      "createdAt": "2023-03-20"
+    },
+    {
+      "id": 5,
+      "name": "Xiaomi Mi 12",
+      "brand": "Xiaomi",
+      "category": "Mobile",
+      "price": 799.99,
+      "description": "High-performance Xiaomi phone with 120W fast charging, 108MP camera, and 120Hz AMOLED display.",
+      "createdAt": "2023-04-01"
+    },
+    {
+      "id": 6,
+      "name": "Sony Xperia 1 IV",
+      "brand": "Sony",
+      "category": "Mobile",
+      "price": 1099.99,
+      "description": "Sony's premium phone with 4K OLED display, Snapdragon 8 Gen 1, and triple 12MP camera.",
+      "createdAt": "2023-04-15"
+    },
+    {
+      "id": 7,
+      "name": "Oppo Find X5 Pro",
+      "brand": "Oppo",
+      "category": "Mobile",
+      "price": 999.99,
+      "description": "Flagship Oppo model featuring Snapdragon 8 Gen 1, 6.7-inch AMOLED display, and 80W fast charging.",
+      "createdAt": "2023-05-01"
+    },
+    {
+      "id": 8,
+      "name": "Asus ROG Phone 6",
+      "brand": "Asus",
+      "category": "Mobile",
+      "price": 899.99,
+      "description": "Gaming smartphone with a 165Hz AMOLED display, Snapdragon 8+ Gen 1, and 6000mAh battery.",
+      "createdAt": "2023-05-20"
+    },
+    {
+      "id": 9,
+      "name": "Motorola Edge+",
+      "brand": "Motorola",
+      "category": "Mobile",
+      "price": 799.99,
+      "description": "Flagship Motorola device with a 6.7-inch OLED display, Snapdragon 8 Gen 1, and 50MP triple camera system.",
+      "createdAt": "2023-06-05"
+    },
+    {
+      "id": 10,
+      "name": "Realme GT 2 Pro",
+      "brand": "Realme",
+      "category": "Mobile",
+      "price": 699.99,
+      "description": "Affordable flagship with Snapdragon 8 Gen 1, 120Hz AMOLED display, and 50MP main camera.",
+      "createdAt": "2023-06-25"
+    },
+    {
+      "id": 11,
+      "name": "Nokia X50",
+      "brand": "Nokia",
+      "category": "Mobile",
+      "price": 499.99,
+      "description": "Mid-range Nokia phone with 6.81-inch display, Snapdragon 778G, and Zeiss optics.",
+      "createdAt": "2023-07-10"
+    },
+    {
+      "id": 12,
+      "name": "Vivo X80 Pro",
+      "brand": "Vivo",
+      "category": "Mobile",
+      "price": 899.99,
+      "description": "Premium smartphone from Vivo with Snapdragon 8 Gen 1, 120Hz AMOLED display, and Zeiss-powered cameras.",
+      "createdAt": "2023-07-25"
+    },
+    {
+      "id": 13,
+      "name": "Huawei Mate 50 Pro",
+      "brand": "Huawei",
+      "category": "Mobile",
+      "price": 999.99,
+      "description": "High-end Huawei phone with Kirin 9000 chipset, 6.7-inch OLED display, and 50MP main camera.",
+      "createdAt": "2023-08-01"
+    },
+    {
+      "id": 14,
+      "name": "Honor Magic4 Pro",
+      "brand": "Honor",
+      "category": "Mobile",
+      "price": 849.99,
+      "description": "Flagship Honor phone with Snapdragon 8 Gen 1, 120Hz OLED display, and 100W fast charging.",
+      "createdAt": "2023-08-15"
+    },
+    {
+      "id": 15,
+      "name": "Lenovo Legion Duel 2",
+      "brand": "Lenovo",
+      "category": "Mobile",
+      "price": 799.99,
+      "description": "Gaming phone with Snapdragon 888, 144Hz AMOLED display, and 5500mAh dual battery.",
+      "createdAt": "2023-08-30"
+    },
+    {
+      "id": 16,
+      "name": "Poco F4 GT",
+      "brand": "Poco",
+      "category": "Mobile",
+      "price": 599.99,
+      "description": "Performance-focused phone with Snapdragon 8 Gen 1, 120Hz AMOLED display, and 64MP camera.",
+      "createdAt": "2023-09-05"
+    },
+    {
+      "id": 17,
+      "name": "ZTE Axon 40 Ultra",
+      "brand": "ZTE",
+      "category": "Mobile",
+      "price": 749.99,
+      "description": "ZTE flagship with Snapdragon 8 Gen 1, under-display camera, and 144Hz AMOLED display.",
+      "createdAt": "2023-09-20"
+    },
+    {
+      "id": 18,
+      "name": "Redmi Note 11 Pro+",
+      "brand": "Xiaomi",
+      "category": "Mobile",
+      "price": 499.99,
+      "description": "Affordable smartphone with 108MP camera, 120Hz AMOLED display, and 120W fast charging.",
+      "createdAt": "2023-10-05"
+    },
+    {
+      "id": 19,
+      "name": "Infinix Zero Ultra",
+      "brand": "Infinix",
+      "category": "Mobile",
+      "price": 699.99,
+      "description": "High-end Infinix phone with 200MP camera, Dimensity 920, and 180W fast charging.",
+      "createdAt": "2023-10-15"
+    },
+    {
+      "id": 20,
+      "name": "Tecno Phantom X2",
+      "brand": "Tecno",
+      "category": "Mobile",
+      "price": 649.99,
+      "description": "Tecno's flagship with Dimensity 9000, 120Hz AMOLED display, and 50MP retractable portrait camera.",
+      "createdAt": "2023-10-25"
+    }
+  ]
+}
