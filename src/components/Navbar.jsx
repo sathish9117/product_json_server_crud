@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import Button from "./Button";
 import { navLists } from "../utils/NavLists";
+import Modal from "./Modal";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,7 +58,9 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-
+        {isOpen && (
+          <Modal toggleModal={toggleModal} del btn_del title="Login"></Modal>
+        )}
         {/* <LoginModal /> */}
       </header>
     </>
