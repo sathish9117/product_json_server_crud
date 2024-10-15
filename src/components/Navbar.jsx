@@ -59,7 +59,13 @@ export default function Navbar() {
           </div>
         </div>
         {isOpen && (
-          <Modal toggleModal={toggleModal} del btn_del title="Login"></Modal>
+          <Modal
+            className="h-10"
+            toggleModal={toggleModal}
+            btn_img
+            closeImg
+            title="Login"
+          ></Modal>
         )}
         {/* <LoginModal /> */}
       </header>
