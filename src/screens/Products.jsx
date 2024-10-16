@@ -9,23 +9,44 @@ import del_icon from "../assets/del_icon.webp";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
+  const [newProduct, setNewProduct] = useState({
+    name: "",
+    brand: "",
+    category: "",
+    price: "",
+    desc: "",
+    createdAt: "",
+  });
   const [isAddOpen, setIsAddOpen] = useState(false);
   const [isDelOpen, setIsDelOpen] = useState(false);
   const [isEditOpen, setIsEditOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const toggleAddModal = () => {
     setIsAddOpen((prev) => !prev);
   };
-  const toggleEditModal = () => {
+  const toggleEditModal = (product) => {
+    setSelectedProduct(product);
     setIsEditOpen((prev) => !prev);
   };
-  const toggleDeldModal = () => {
+  const toggleDeldModal = (product) => {
+    setSelectedProduct(product);
     setIsDelOpen(!isDelOpen);
   };
 
   useEffect(() => {
     getProducts();
   }, []);
+  // Create Data
+  function addProduct() {
+    axios.post("http://localhost:3000/products", newProduct).then((res) => {
+      console.log("After Adding", res);
+      getProducts();
+    });
+    // alert(JSON.stringify(newProduct));
+    setIsAddOpen(false);
+  }
+  // Read Data
   function getProducts() {
     axios
       .get("http://localhost:3000/products")
@@ -35,7 +56,27 @@ export default function Products() {
       })
       .catch(() => {});
   }
-
+  // Update Data
+  function updateProduct() {
+    axios
+      .put(
+        `http://localhost:3000/products/${selectedProduct.id}`,
+        selectedProduct
+      )
+      .then((res) => {
+        getProducts();
+        setIsEditOpen(false);
+        console.log(res);
+      });
+  }
+  // Delete Data
+  function deleteProduct(id) {
+    axios.delete(`http://localhost:3000/products/${id}`).then((res) => {
+      getProducts();
+      setIsDelOpen(false);
+      console.log(res);
+    });
+  }
   return (
     <div className={`${oContainer} mt-[64px]`}>
       <div className="">
@@ -63,7 +104,7 @@ export default function Products() {
                           </h3>
                           <FaRegEdit
                             className=" cursor-pointer text-xl"
-                            onClick={toggleEditModal}
+                            onClick={() => toggleEditModal(product)}
                           />
                         </div>
                         <div className="mt-2">
@@ -99,7 +140,7 @@ export default function Products() {
                             type="button"
                             className=" bg-red-600"
                             title="Delete"
-                            onClick={toggleDeldModal}
+                            onClick={() => toggleDeldModal(product)}
                           />
                         </div>
                       </div>
@@ -125,31 +166,60 @@ export default function Products() {
                 
                 */}
 
-                <CustomInput req label="Product Name" />
-                <CustomInput req label="Brand Name" />
-                <CustomInput req label="Category Name" />
-                <CustomInput req label="Price" />
-                <CustomInput label="Description" multi rows="3" />
-                <Button title="Add" className={"w-full"} />
+                <CustomInput
+                  req
+                  label="Product Name"
+                  onChange={(event) => {
+                    setNewProduct({ ...newProduct, name: event.target.value });
+                  }}
+                />
+                <CustomInput
+                  req
+                  label="Brand Name"
+                  onChange={(event) => {
+                    setNewProduct({ ...newProduct, brand: event.target.value });
+                  }}
+                />
+                <CustomInput
+                  req
+                  label="Category Name"
+                  onChange={(event) => {
+                    setNewProduct({
+                      ...newProduct,
+                      category: event.target.value,
+                    });
+                  }}
+                />
+
+                <CustomInput
+                  req
+                  label="Price"
+                  onChange={(event) => {
+                    setNewProduct({ ...newProduct, price: event.target.value });
+                  }}
+                />
+
+                <CustomInput
+                  label="Description"
+                  multi
+                  rows="3"
+                  onChange={(event) => {
+                    setNewProduct({ ...newProduct, desc: event.target.value });
+                  }}
+                />
+
+                <Button
+                  title="Add"
+                  className={"w-full"}
+                  onClick={() => {
+                    addProduct();
+                  }}
+                />
               </div>
             </Modal>
           )}
-          {/* Delete Modal*/}
-          {isDelOpen && (
-            <Modal
-              title="Confirm Delete"
-              btn_img
-              closeImg
-              cancelBtn
-              toggleModal={toggleDeldModal}
-            >
-              <div className=" flex flex-col justify-center items-center">
-                <img src={del_icon} className=" w-1/2" alt="" />
-                <Button title={"Delete"} className={"w-full"} />
-              </div>
-            </Modal>
-          )}
-          {isEditOpen && (
+
+          {isEditOpen && selectedProduct && (
             <Modal
               title="Edit Product"
               cancelBtn
@@ -165,12 +235,89 @@ export default function Products() {
                 
                 */}
 
-                <CustomInput req label="Product Name" />
-                <CustomInput req label="Brand Name" />
-                <CustomInput req label="Category Name" />
-                <CustomInput req label="Price" />
-                <CustomInput label="Description" multi rows="3" />
-                <Button title="Update" className={"w-full"} />
+                <CustomInput
+                  req
+                  label="Product Name"
+                  value={selectedProduct.name}
+                  onChange={(e) =>
+                    setSelectedProduct({
+                      ...selectedProduct,
+                      name: e.target.value,
+                    })
+                  }
+                />
+                <CustomInput
+                  req
+                  label="Brand Name"
+                  value={selectedProduct.brand}
+                  onChange={(e) =>
+                    setSelectedProduct({
+                      ...selectedProduct,
+                      brand: e.target.value,
+                    })
+                  }
+                />
+                <CustomInput
+                  req
+                  label="Category Name"
+                  value={selectedProduct.category}
+                  onChange={(e) =>
+                    setSelectedProduct({
+                      ...selectedProduct,
+                      category: e.target.value,
+                    })
+                  }
+                />
+                <CustomInput
+                  req
+                  label="Price"
+                  value={selectedProduct.price}
+                  onChange={(e) =>
+                    setSelectedProduct({
+                      ...selectedProduct,
+                      price: e.target.value,
+                    })
+                  }
+                />
+                <CustomInput
+                  label="Description"
+                  multi
+                  rows="3"
+                  value={selectedProduct.desc}
+                  onChange={(e) =>
+                    setSelectedProduct({
+                      ...selectedProduct,
+                      desc: e.target.value,
+                    })
+                  }
+                />
+                <Button
+                  title="Update"
+                  className={"w-full"}
+                  onClick={updateProduct}
+                />
+              </div>
+            </Modal>
+          )}
+
+          {/* Delete Modal*/}
+          {isDelOpen && selectedProduct && (
+            <Modal
+              title="Confirm Delete"
+              btn_img
+              closeImg
+              cancelBtn
+              toggleModal={() => toggleDeldModal(null)}
+            >
+              <div className=" flex flex-col justify-center items-center">
+                <img src={del_icon} className=" w-1/2" alt="" />
+                <Button
+                  title={"Delete"}
+                  className={"w-full"}
+                  onClick={() => {
+                    deleteProduct(selectedProduct.id);
+                  }}
+                />
               </div>
             </Modal>
           )}
