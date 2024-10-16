@@ -9,6 +9,7 @@ const CustomInput = ({
   minRows = "",
   maxRows = "",
   rows = "",
+  onChange,
   ...props
 }) => {
   return (
@@ -21,6 +22,7 @@ const CustomInput = ({
         label={label}
         minRows={minRows}
         maxRows={maxRows}
+        onChange={onChange}
         rows={rows}
         {...props}
       />
