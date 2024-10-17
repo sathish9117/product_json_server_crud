@@ -20,6 +20,7 @@ export default function Products() {
   const [isAddOpen, setIsAddOpen] = useState(false);
   const [isDelOpen, setIsDelOpen] = useState(false);
   const [isEditOpen, setIsEditOpen] = useState(false);
+  const [isViewOpen, setIsViewOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const toggleAddModal = () => {
@@ -28,6 +29,10 @@ export default function Products() {
   const toggleEditModal = (product) => {
     setSelectedProduct(product);
     setIsEditOpen((prev) => !prev);
+  };
+  const toggleViewModal = (product) => {
+    setSelectedProduct(product);
+    setIsViewOpen((prev) => !prev);
   };
   const toggleDeldModal = (product) => {
     setSelectedProduct(product);
@@ -135,7 +140,11 @@ export default function Products() {
                           </table>
                         </div>
                         <div className=" mt-3 flex justify-between">
-                          <Button type="button" title="View" />
+                          <Button
+                            type="button"
+                            title="View"
+                            onClick={() => toggleViewModal(product)}
+                          />
                           <Button
                             type="button"
                             className=" bg-red-600"
@@ -218,7 +227,7 @@ export default function Products() {
               </div>
             </Modal>
           )}
-
+          {/* Update Modal */}
           {isEditOpen && selectedProduct && (
             <Modal
               title="Edit Product"
@@ -299,7 +308,6 @@ export default function Products() {
               </div>
             </Modal>
           )}
-
           {/* Delete Modal*/}
           {isDelOpen && selectedProduct && (
             <Modal
@@ -318,6 +326,71 @@ export default function Products() {
                     deleteProduct(selectedProduct.id);
                   }}
                 />
+              </div>
+            </Modal>
+          )}
+          {/* View Modal */}
+          {isViewOpen && selectedProduct && (
+            <Modal
+              title="Product Details"
+              className=""
+              btn_img
+              closeImg
+              toggleModal={toggleViewModal}
+            >
+              <div className="boder border-emerald-500">
+                <table className="">
+                  <tbody>
+                    <tr>
+                      <td className="w-[40%">
+                        <h1>Name: </h1>
+                      </td>
+                      <td>
+                        <h1>{selectedProduct.name}</h1>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h1>Brand: </h1>
+                      </td>
+                      <td>
+                        <h1>{selectedProduct.brand}</h1>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h1>Category: </h1>
+                      </td>
+                      <td>
+                        <h1>{selectedProduct.category}</h1>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h1>Price: </h1>
+                      </td>
+                      <td>
+                        <h1>{selectedProduct.price}</h1>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h1>Description: </h1>
+                      </td>
+                      <td>
+                        <h1>{selectedProduct.desc}</h1>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h1>createdAt: </h1>
+                      </td>
+                      <td>
+                        <h1>{selectedProduct.createdAt}</h1>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </Modal>
           )}
