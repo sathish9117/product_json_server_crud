@@ -36,4 +36,4 @@ Technical Highlights
 - Designed and implemented custom reusable components
 - Integrated Tailwind CSS for consistent and responsive styling
 
-Author: Sathish (GitHub: sathish9117)
+Author: Sathish
