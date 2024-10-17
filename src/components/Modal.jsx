@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Button from "./Button";
 
 const Modal = ({
+  className,
   toggleModal,
   children,
   title = "Hello",
@@ -28,7 +29,9 @@ const Modal = ({
           />
         )}
 
-        <h2 className="mb-4 text-xl font-bold text-center text-gray-800">
+        <h2
+          className={`mb-4 text-3xl font-bold text-center text-gray-800 ${className}`}
+        >
           {title}
         </h2>
         {children}
